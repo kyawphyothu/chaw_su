@@ -61,24 +61,24 @@ export default function App() {
 
   return (
     <div className='w-full h-full flex flex-col items-center space-y-5 py-8'>
-      <div className='flex space-x-3 items-center'>
+      <div className='flex flex-col md:flex-row space-x-3 space-y-3 items-center'>
         <textarea
           rows={4}
-          className='w-96 px-3 py-2 bg-black/20 outline-0 rounded-md'
+          className='w-fit md:w-96 px-3 py-2 bg-black/20 outline-0 rounded-md'
           type="text"
           value={newChawSuName}
           ref={inputRef}
           onChange={(e) => setNewChawSuName(e.target.value)}
         />
         <button
-          className='bg-black text-white h-10 w-10 rounded-md'
+          className='bg-black text-white h-10 w-full md:w-10 rounded-md'
           onClick={handleCreateChawSu}
           >
           +
         </button>
       </div>
 
-      <div className='w-96 flex flex-col space-y-3'>
+      <div className='w-full md:w-96 px-3 flex flex-col space-y-3'>
         {
           chawSuList.map(i => {
             const names = i.name.split('///');
@@ -94,7 +94,7 @@ export default function App() {
                       >
                       <MaterialSymbolsContentCopy className={clickedCopyIconIndex===i.id && "text-emerald-500"} />
                     </div>
-                    <button className='text-red-600 text-sm' onClick={() => handleDeleteChawSu(i.id)}>X</button>
+                    <button className='text-red-600 text-sm hidden md:block' onClick={() => handleDeleteChawSu(i.id)}>X</button>
                   </div>
                 </div>
               </React.Fragment>
